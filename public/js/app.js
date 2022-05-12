@@ -2,6 +2,7 @@ const weatherForm = document.querySelector("form");
 const search = document.querySelector("input");
 const messageOne = document.querySelector("#message-1");
 const messageTwo = document.querySelector("#message-2");
+const messageThree = document.querySelector("#message-3");
 
 weatherForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -9,6 +10,7 @@ weatherForm.addEventListener("submit", (e) => {
   if (place)
     fetch("weather?place=" + place).then((res) => {
       messageTwo.textContent = "";
+      messageThree.textContent = "";
       messageOne.textContent = "Loading";
       res.json().then((data) => {
         if (data.geoError) {
@@ -19,15 +21,17 @@ weatherForm.addEventListener("submit", (e) => {
           ${data.location} `;
 
         messageTwo.textContent = `
-          ${data.forecast}:
-          ${data.temperature}°C 
-          feelslike: ${data.feelslike}°C`;
+          ${data.forecast}`;
+
+        messageThree.textContent = `Temperature: ${data.temperature}°C. Ressenti: ${data.feelslike}°C`;
       });
       messageTwo.textContent = "";
       messageOne.textContent = "";
+      messageThree.textContent = "";
     });
   if (!place) {
     messageOne.textContent = "";
-    messageTwo.textContent = "Please provide location";
+    messageThree.textContent = "";
+    messageTwo.textContent = "Entrez un lieu svp";
   }
 });

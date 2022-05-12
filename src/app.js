@@ -24,29 +24,44 @@ hbs.registerPartials(partialsPath);
 //Setup static directory to serve
 app.use(express.static(publicDir));
 
+// app.get("", (req, res) => {
+//   res.render("index", {
+//     title: "Weather App",
+//     pageTitle: "Weather",
+//     name: "George F",
+//   });
+// });
 app.get("", (req, res) => {
   res.render("index", {
-    title: "Weather App",
-    pageTitle: "Weather",
-    name: "George F",
+    title: "App-Temperature ",
+    pageTitle: "Temperature",
+    name: "copy right @gfrancis",
   });
 });
 
+// app.get("/about", (req, res) => {
+//   res.render("about", {
+//     title: "About Me",
+//     pageTitle: "About",
+//     name: "George F",
+//     img: "/img/me.jpg",
+//   });
+// });
 app.get("/about", (req, res) => {
   res.render("about", {
-    title: "About Me",
-    pageTitle: "About",
-    name: "George F",
+    title: " Qui suis-je",
+    pageTitle: "A propos",
+    name: "copy right @gfrancis",
     img: "/img/me.jpg",
   });
 });
 
 app.get("/help", (req, res) => {
   res.render("help", {
-    title: "Need-Help?",
-    pageTitle: "Help",
-    name: "George F.",
-    msg: "Start with our FAQ before opening a ticket.",
+    title: "Besoin d'aide?",
+    pageTitle: "Aide",
+    name: "copy right @gfrancis",
+    msg: "mail a: gf75002270@gmail.com.",
   });
 });
 
@@ -54,8 +69,8 @@ app.get("/help/*", (req, res) => {
   res.render("404_errors", {
     title: "404",
     pageTitle: "404",
-    errorsMsg404: "Help article not found",
-    name: "George F.",
+    errorsMsg404: "Aucun article d'aide trouvé",
+    name: "copy right @gfrancis",
   });
 });
 
@@ -81,24 +96,13 @@ app.get("/weather", (req, res) => {
     });
   });
 });
-
-app.get("/products", (req, res) => {
-  if (!req.query.search) {
-    return res.send({
-      error: "You must provide a search term!",
-    });
-  }
-  res.send({
-    product: [],
-  });
-});
 //come at last for the other route (*)
 app.get("*", (req, res) => {
   res.render("404_errors", {
     title: "404",
     pageTitle: "404",
-    errorsMsg404: "Page not found",
-    name: "George F.",
+    errorsMsg404: "Page non trouvé",
+    name: "copy right @gfrancis",
   });
 });
 

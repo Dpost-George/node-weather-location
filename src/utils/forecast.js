@@ -9,7 +9,7 @@ const forecast = (object, callback) => {
   request({ url: url, json: true }, (error, response) => {
     //json:true convert directly to JSON
     try {
-      if (response.body.error) throw new Error(`Unable to find location`);
+      if (response.body.error) throw new Error(`Impossible de trouver le lieu`);
       const data = response.body.current;
       if (object.place)
         callback("", {
@@ -21,7 +21,7 @@ const forecast = (object, callback) => {
     } catch (error) {
       callback(
         {
-          low: `Connection issue with weather server...`,
+          low: `Problem de connection avec le serveur de temperature...`,
           hight: error,
         },
         ""

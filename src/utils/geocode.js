@@ -11,7 +11,7 @@ const geocode = (placeName, callback) => {
   request({ url: urlGeocode, json: true }, (error, response) => {
     try {
       if (response.body.features.length === 0)
-        throw new Error(`Unable to find location. try again!`);
+        throw new Error(`Impossible de trouver le lieu. Essayez encore!`);
       const [data] = response.body.features;
       const [lng, lat] = data.center;
       const place = data.place_name;
@@ -23,7 +23,7 @@ const geocode = (placeName, callback) => {
     } catch (error) {
       callback(
         {
-          low: `Connection issue with geocode server...`,
+          low: `Problem de connection avec le serveur Geocode...`,
           hight: error,
         },
         ""
