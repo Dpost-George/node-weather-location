@@ -92,6 +92,7 @@ app.get("/weather", (req, res) => {
         forecast: forecastData.weatherDesc,
         temperature: forecastData.temperature,
         feelslike: forecastData.realFeels,
+        humidity: forecastData.humidity,
       });
     });
   });

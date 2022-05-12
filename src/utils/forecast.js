@@ -11,12 +11,14 @@ const forecast = (object, callback) => {
     try {
       if (response.body.error) throw new Error(`Impossible de trouver le lieu`);
       const data = response.body.current;
+      //console.log(data.humidity);
       if (object.place)
         callback("", {
           place,
           weatherDesc: data.weather_descriptions[0],
           temperature: data.temperature,
           realFeels: data.feelslike,
+          humidity: data.humidity,
         });
     } catch (error) {
       callback(

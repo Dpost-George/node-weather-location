@@ -22,8 +22,8 @@ weatherForm.addEventListener("submit", (e) => {
 
         messageTwo.textContent = `
           ${data.forecast}`;
-
-        messageThree.textContent = `Temperature: ${data.temperature}°C. Ressenti: ${data.feelslike}°C`;
+        //console.log(data);
+        messageThree.textContent = `Temperature: ${data.temperature}°C. Ressenti: ${data.feelslike}°C  Humidité:${data.humidity}`;
       });
       messageTwo.textContent = "";
       messageOne.textContent = "";
