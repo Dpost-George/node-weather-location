@@ -49,7 +49,7 @@ app.get("", (req, res) => {
 // });
 app.get("/about", (req, res) => {
   res.render("about", {
-    title: " Qui suis-je",
+    title: " A propos",
     pageTitle: "A propos",
     name: "copy right @gfrancis",
     img: "/img/me.jpg",
